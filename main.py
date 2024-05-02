@@ -1,14 +1,14 @@
 import pygame
+import pyautogui
 
 pygame.init()
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = int(SCREEN_WIDTH * 0.8)
+SCREEN_WIDTH, SCREEN_HEIGHT = pyautogui.size()
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-screen.fill((255, 255, 155))
-
+screen.fill((255, 255, 255))
+pygame.display.set_caption('山海和一 電力供應局')
 
 run = True
 while run:
