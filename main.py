@@ -1,6 +1,10 @@
 import pygame
 import pyautogui
 
+class sturcture:
+    def __init__(self):
+        pass
+
 pygame.init()
 
 SCREEN_WIDTH, SCREEN_HEIGHT = pyautogui.size()
