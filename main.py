@@ -76,10 +76,10 @@ def createTiles():
 
 def createTileList():
     temp = []
-    for i in range(int(SCREEN_WIDTH/16)):
-        for j in range(int(SCREEN_HEIGHT/16)+1):
+    for i in range(1, int(SCREEN_WIDTH/16) - 1):
+        for j in range(1, int(SCREEN_HEIGHT/16)):
             temp.append([i,j])
-            ##pygame.draw.circle(screen, (0,0,0), (i*16+5,j*16+5), 5)
+            pygame.draw.circle(screen, (0,0,0), (i*16+5,j*16+5), 5)
             
     return temp
 
