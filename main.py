@@ -5,6 +5,9 @@ import pygame
 #set
 pygame.init()
 
+#fps
+clock = pygame.time.Clock()
+
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
@@ -76,23 +79,30 @@ def createTileList():
     for i in range(int(SCREEN_WIDTH/16)+1):
         for j in range(int(SCREEN_HEIGHT/16)+1):
             temp.append([i,j])
-            pygame.draw.circle(screen, (0,0,0), (i*16+5,j*16+5), 5)
+            #pygame.draw.circle(screen, (0,0,0), (i*16+5,j*16+5), 5)
+    return temp
+
+def tileListInit():
+    temp = []
+    for x in range(len(tileposList)):
+        temp.append("0002")
     return temp
 
 def createTiles(list):
     tempx = 0
     for x in range(len(list)):
-        TILE = BGtiles("./assets/Tiles/tile_0002.png", tileList[tempx][0]*16, tileList[tempx][1]*16)
+        TILE = BGtiles("./assets/Tiles/tile_"+tilelist[tempx]+".png", tileposList[tempx][0]*16, tileposList[tempx][1]*16)
         screen.blit(TILE.image, (TILE.x, TILE.y))
         tempx += 1
+
 
 
 #variables
 TILE = None
 
 #lists
-tileList = createTileList()
-
+tileposList = createTileList()
+tilelist = tileListInit()
 #run
 run = True
 while run:
@@ -101,8 +111,8 @@ while run:
         if event.type == pygame.QUIT:
             run = False
     #screen.blit(TILE.image, (TILE.x, TILE.y))
-    createTiles(tileList)
+    createTiles(tileposList)
     pygame.display.update()
-
+    clock.tick(90)
 pygame.quit()
 
