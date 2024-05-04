@@ -71,8 +71,8 @@ class BGtiles:
 
 
 #define
-def createTiles(filename):
-    tile = BGtiles("./assets/Tiles/tile_"+str(filename)+".png")
+def createTiles(filename = str):
+    tile = BGtiles("./assets/Tiles/tile_"+filename+".png")
     return tile
 
 
