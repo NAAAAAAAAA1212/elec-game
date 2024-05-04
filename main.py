@@ -25,7 +25,7 @@ class Build:
         self.type = building
         self.level = level
         self.next_cost = self.type.cost + self.type.cost_per_upgrade
-        self.image = None
+        self.image = self.type.image
         self.rect = self.image.get_rect()
         self.x = 0
         self.y = 0
