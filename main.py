@@ -1,5 +1,5 @@
 import pygame
-
+import easygui
 
 #Tile pixel = 16x16
 #set
@@ -110,9 +110,15 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            posx, posy = pygame.mouse.get_pos()
+            print(pygame.mouse.get_pos())
+            TILE = BGtiles("./assets/Tiles/tile_0005.png", posx/16*16, posy/16*16)
+            screen.blit(TILE.image, (TILE.x, TILE.y))
     #screen.blit(TILE.image, (TILE.x, TILE.y))
     createTiles(tileposList)
     pygame.display.update()
-    clock.tick(90)
+    clock.tick(144)
 pygame.quit()
 
+exit()
