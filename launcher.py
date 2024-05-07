@@ -3,46 +3,10 @@ from tkinter import *
 from tkinter.ttk import *
 import time
 import activation
+import os
 
-'''
-app = customtkinter.CTk()
-app.geometry("500x400")
-
-logined = False
-wrongEntry = 0
-def login():
-    if entry1.get() == "admin" and entry2.get() == "admin":
-        global logined
-        logined = True
-        app.destroy()
-    else:
-        global wrongEntry
-        wrongEntry += 1
-        if wrongEntry <= 1:
-            label2 = customtkinter.CTkLabel(master=frame, text="用戶名稱或密碼錯誤", text_color="#FF0000")
-            label2.pack(pady = 12, padx = 10)
-
-
-frame = customtkinter.CTkFrame(master = app)
-frame.pack(pady = 20, padx = 60, fill = "both", expand = True)
-
-label = customtkinter.CTkLabel(master = frame, text = "進入遊戲")
-label.pack(pady = 12, padx = 10)
-
-entry1 = customtkinter.CTkEntry(master = frame, placeholder_text = "用戶名稱")
-entry1.pack(pady = 12, padx = 10)
-
-entry2 = customtkinter.CTkEntry(master = frame, placeholder_text = "密碼", show = "*")
-entry2.pack(pady = 12, padx = 10)
-
-button = customtkinter.CTkButton(master = frame, text = "登錄", command = login)
-button.pack(pady = 12, padx = 10)
-
-label = customtkinter.CTkLabel(master=app, text="開發者版本 1.0.0\n版權持有 (C)\n2024 Zeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org] &\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
-label.pack(pady = 12, padx = 10)
-
-app.mainloop()
-'''
+reset = False
+run = False
 
 activation_raw = activation.check_activation()
 activation_status = False
@@ -63,6 +27,8 @@ while not activation_status:
             if wrongEntry <= 1:
                 label2 = customtkinter.CTkLabel(master=frame, text="激活碼錯誤", text_color="#FF0000")
                 label2.pack(pady = 12, padx = 10)
+    def leave():
+        exit()
     app = customtkinter.CTk()
     app.geometry("800x600")
     frame = customtkinter.CTkFrame(master = app)
@@ -79,6 +45,8 @@ while not activation_status:
     type.pack(pady = 12, padx = 10)
     button = customtkinter.CTkButton(master = frame, text = "激活", command = activate)
     button.pack(pady = 12, padx = 10)
+    button2 = customtkinter.CTkButton(master = frame, text = "激活", command = leave)
+    button2.pack(pady = 12, padx = 10)
     label = customtkinter.CTkLabel(master=app, text="開發者版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
     label.pack(pady = 12, padx = 10)
     app.mainloop()
@@ -86,4 +54,65 @@ while not activation_status:
     if activation_raw != "FAIL":
         activation_status = True
 
-#import main
+if activation_status:
+    def start():
+        global run
+        run = True
+        app.destroy()
+    def leave():
+        exit()
+    def de():
+        global reset
+        reset = True
+        app.destroy()
+    app = customtkinter.CTk()
+    app.geometry("800x600")
+    frame = customtkinter.CTkFrame(master = app)
+    frame.pack(pady = 20, padx = 60, fill = "both", expand = True)
+    label1 = customtkinter.CTkLabel(master = frame, text = "山海合一")
+    label1.pack(pady = 12, padx = 10)
+    button1 = customtkinter.CTkButton(master = frame, text = "啟動", command = start)
+    button1.pack(pady = 12, padx = 10)
+    button2 = customtkinter.CTkButton(master = frame, text = "退出", command = leave)
+    button2.pack(pady = 12, padx = 10)
+    button3 = customtkinter.CTkButton(master = frame, text = "重置", command = de)
+    button3.pack(pady = 12, padx = 10)
+    label2 = customtkinter.CTkLabel(master=frame, text="激活版本: "+activation_raw, text_color="#000000")
+    label2.pack(pady = 12, padx = 10)
+    label3 = customtkinter.CTkLabel(master=app, text="開發者版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
+    label3.pack(pady = 12, padx = 10)
+    app.mainloop()
+
+if reset:
+    def confirm():
+        os.remove("./activation/key.act")
+        os.remove("./activation/mail.act")
+        os.remove("./activation/name.act")
+        os.remove("./activation/type.act")
+        exit()
+    def leave():
+        exit()
+    def de():
+        reset = True
+        app.destroy
+    app = customtkinter.CTk()
+    app.geometry("800x600")
+    frame = customtkinter.CTkFrame(master = app)
+    frame.pack(pady = 20, padx = 60, fill = "both", expand = True)
+    label1 = customtkinter.CTkLabel(master = frame, text = "重置所有設定")
+    label1.pack(pady = 12, padx = 10)
+    label2 = customtkinter.CTkLabel(master = frame, text = "警告: 這會清除激活碼！")
+    label2.pack(pady = 12, padx = 10)
+    button1 = customtkinter.CTkButton(master = frame, text = "確定", command = confirm)
+    button1.pack(pady = 12, padx = 10)
+    button2 = customtkinter.CTkButton(master = frame, text = "取消", command = leave)
+    button2.pack(pady = 12, padx = 10)
+    label2 = customtkinter.CTkLabel(master=frame, text="激活版本: "+activation_raw, text_color="#000000")
+    label2.pack(pady = 12, padx = 10)
+    label3 = customtkinter.CTkLabel(master=app, text="開發者版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
+    label3.pack(pady = 12, padx = 10)
+    app.mainloop()
+
+if run:
+    import main
+    main.main()
