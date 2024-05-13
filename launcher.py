@@ -4,7 +4,6 @@ from tkinter.ttk import *
 import time
 import os
 
-reset = False
 activation_raw = "BETA"
 run = True
 if run:
@@ -14,10 +13,6 @@ if run:
         app.destroy()
     def leave():
         exit()
-    def de():
-        global reset
-        reset = True
-        app.destroy()
     app = customtkinter.CTk()
     app.geometry("800x600")
     frame = customtkinter.CTkFrame(master = app)
@@ -28,8 +23,6 @@ if run:
     button1.pack(pady = 12, padx = 10)
     button2 = customtkinter.CTkButton(master = frame, text = "退出", command = leave)
     button2.pack(pady = 12, padx = 10)
-    button3 = customtkinter.CTkButton(master = frame, text = "重置", command = de)
-    button3.pack(pady = 12, padx = 10)
     label2 = customtkinter.CTkLabel(master=frame, text="激活版本: "+activation_raw, text_color="#000000")
     label2.pack(pady = 12, padx = 10)
     label3 = customtkinter.CTkLabel(master=app, text="開發者公測版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
@@ -39,32 +32,6 @@ if run:
 if not run:
     exit()
 
-if reset:
-    def confirm():
-        os.remove("./activation/key.act")
-        os.remove("./activation/mail.act")
-        os.remove("./activation/name.act")
-        os.remove("./activation/type.act")
-        exit()
-    def leave():
-        exit()
-    app = customtkinter.CTk()
-    app.geometry("800x600")
-    frame = customtkinter.CTkFrame(master = app)
-    frame.pack(pady = 20, padx = 60, fill = "both", expand = True)
-    label1 = customtkinter.CTkLabel(master = frame, text = "重置所有設定")
-    label1.pack(pady = 12, padx = 10)
-    label2 = customtkinter.CTkLabel(master = frame, text = "警告: 這會清除激活碼！")
-    label2.pack(pady = 12, padx = 10)
-    button1 = customtkinter.CTkButton(master = frame, text = "確定", command = confirm)
-    button1.pack(pady = 12, padx = 10)
-    button2 = customtkinter.CTkButton(master = frame, text = "取消", command = leave)
-    button2.pack(pady = 12, padx = 10)
-    label2 = customtkinter.CTkLabel(master=frame, text="激活版本: "+activation_raw, text_color="#000000")
-    label2.pack(pady = 12, padx = 10)
-    label3 = customtkinter.CTkLabel(master=app, text="開發者公測版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
-    label3.pack(pady = 12, padx = 10)
-    app.mainloop()
 
 budget = 0
 infinity_budget = False
