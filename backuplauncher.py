@@ -17,16 +17,17 @@ if not unlimited_raw:
         except:
             pass
 print("請輸入分數比例:")
-elec = 0.0
-newe = 0.0
-while elec == 0.0 and newe == 0.0 and elec + newe != 100:
+elec = 0
+newe = 0
+while elec + newe != 100:
     elec_raw = input("elec >>> ")
     newe_raw = input("newe >>> ")
     try:
-        elec = float(elec_raw)
-        newe = float(newe_raw)
+        elec = int(elec_raw)
+        newe = int(newe_raw)
     except:
         pass
+        
 print("-----------")
 print("starting game......")
 import main
