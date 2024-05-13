@@ -6,7 +6,7 @@ import os
 
 activation_raw = "BETA"
 run = False
-if run:
+if not run:
     def start():
         global run
         run = True
