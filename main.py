@@ -4,8 +4,9 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
     clock = pygame.time.Clock()
     SCREEN_WIDTH = 800
     SCREEN_HEIGHT = 600
+    pygame.font.init()
+    FONT = pygame.font.Font('./assets/font/华文楷体.ttf', 50)
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    screen.fill((255, 255, 255))
     pygame.display.set_caption('山海和一遊戲')
     class BGtiles:
         def __init__(self, image, x = int, y = int):
@@ -13,6 +14,8 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
             self.rect = self.image.get_rect()
             self.x = x
             self.y = y
+
+
     #define
     def createTileList():
         temp = []
@@ -28,9 +31,14 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
     def createTiles(list):
         tempx = 0
         for x in range(len(list)):
-            TILE = BGtiles("./assets/Tiles/tile_"+tilelist[tempx]+".png", tileposList[tempx][0]*16, tileposList[tempx][1]*16)
-            screen.blit(TILE.image, (TILE.x, TILE.y))
+            tile = BGtiles("./assets/Tiles/tile_"+tilelist[tempx]+".png", tileposList[tempx][0]*16, tileposList[tempx][1]*16)
+            screen.blit(tile.image, (tile.x, tile.y))
             tempx += 1
+    def showtext(font, text, color, x, y):
+    
+        showtext_ = font.render(text, True, color)
+        textRect = showtext_.get_rect(center = (x, y))
+        screen.blit(showtext_, textRect)
     #variables
     TILE = None
     #lists
@@ -38,7 +46,6 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
     tilelist = tileListInit()
     #run
     run = True
-    createTiles(tileposList)
     current = "2001"
     elec_add = 100
     envi_add = -60
@@ -46,6 +53,8 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
     envi_point = 100
     cost = 300
     while run:
+        #screen.fill((255, 255, 255))
+        createTiles(tileposList)
         events = pygame.event.get()
         keys = pygame.key.get_pressed()
         for event in events:
@@ -106,9 +115,16 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
                     budget-=cost
                     elec_point+=elec_add
                     envi_point+=envi_add
+        
+    
+        if infinity:
+            showtext(FONT, "當前剩餘資金：無限", (0,0,0), 100, 100)
+        else:
+            showtext(FONT, "當前剩餘資金："+str(budget), (0,0,0), 100, 100)
         pygame.display.update()
         clock.tick(144)
     pygame.quit()
+    
     point = 0.0
     point = ((elec_point * elec / 100) + (envi_point * envi / 100)) * 10000000000
     if infinity:
