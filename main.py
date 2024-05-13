@@ -41,6 +41,8 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
         screen.blit(showtext_, textRect)
     #variables
     TILE = None
+    text_x = SCREEN_WIDTH//2
+    text_y = SCREEN_HEIGHT//2
     #lists
     tileposList = createTileList()
     tilelist = tileListInit()
@@ -118,9 +120,9 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
         
     
         if infinity:
-            showtext(FONT, "當前剩餘資金：無限", (0,0,0), 100, 100)
+            showtext(FONT, "當前剩餘資金：無限", (0,0,0), text_x, text_y)
         else:
-            showtext(FONT, "當前剩餘資金："+str(budget), (0,0,0), 100, 100)
+            showtext(FONT, "當前剩餘資金："+str(budget), (0,0,0), text_x, text_y)
         pygame.display.update()
         clock.tick(144)
     pygame.quit()
