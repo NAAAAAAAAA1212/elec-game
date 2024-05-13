@@ -5,7 +5,7 @@ import time
 import os
 
 activation_raw = "BETA"
-run = True
+run = False
 if run:
     def start():
         global run
