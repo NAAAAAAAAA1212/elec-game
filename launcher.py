@@ -32,7 +32,7 @@ if run:
     button3.pack(pady = 12, padx = 10)
     label2 = customtkinter.CTkLabel(master=frame, text="激活版本: "+activation_raw, text_color="#000000")
     label2.pack(pady = 12, padx = 10)
-    label3 = customtkinter.CTkLabel(master=app, text="開發者版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
+    label3 = customtkinter.CTkLabel(master=app, text="開發者公測版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
     label3.pack(pady = 12, padx = 10)
     app.mainloop()
 
@@ -62,7 +62,7 @@ if reset:
     button2.pack(pady = 12, padx = 10)
     label2 = customtkinter.CTkLabel(master=frame, text="激活版本: "+activation_raw, text_color="#000000")
     label2.pack(pady = 12, padx = 10)
-    label3 = customtkinter.CTkLabel(master=app, text="開發者版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
+    label3 = customtkinter.CTkLabel(master=app, text="開發者公測版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
     label3.pack(pady = 12, padx = 10)
     app.mainloop()
 
@@ -109,7 +109,7 @@ while budget == 0 and not infinity_budget:
     button3.pack(pady = 12, padx = 10)  
     label3 = customtkinter.CTkLabel(master=frame, text="激活版本: "+activation_raw, text_color="#000000")
     label3.pack(pady = 12, padx = 10)
-    label4 = customtkinter.CTkLabel(master=app, text="開發者版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
+    label4 = customtkinter.CTkLabel(master=app, text="開發者公測版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
     label4.pack(pady = 12, padx = 10)
     app.mainloop()
 wrongEntry2 = 0
@@ -161,7 +161,7 @@ while point_elec == 0.0 and point_newe == 0.0:
     button2.pack(pady = 12, padx = 10)  
     label3 = customtkinter.CTkLabel(master=frame, text="激活版本: "+activation_raw, text_color="#000000")
     label3.pack(pady = 12, padx = 10)
-    label4 = customtkinter.CTkLabel(master=app, text="開發者版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
+    label4 = customtkinter.CTkLabel(master=app, text="開發者公測版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
     label4.pack(pady = 12, padx = 10)
     app.mainloop()
 
@@ -183,6 +183,6 @@ label4 = customtkinter.CTkLabel(master = frame, text = point)
 label4.pack(pady = 12, padx = 10)
 button1 = customtkinter.CTkButton(master = frame, text = ">>>結束<<<", command = bye)
 button1.pack(pady = 12, padx = 10)
-label5 = customtkinter.CTkLabel(master=app, text="開發者版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
+label5 = customtkinter.CTkLabel(master=app, text="開發者公測版本 1.0.0\n版權持有 (C) 2024\nZeng Alexandre Qizhi [alexa@microsoft.zengqizhi.eu.org]\n&\nJiang Bo Hong [jerry@microsoft.zengqizhi.eu.org]", text_color="#000000")
 label5.pack(pady = 12, padx = 10)
 app.mainloop()
