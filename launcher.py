@@ -1,8 +1,6 @@
 import customtkinter 
 from tkinter import *
 from tkinter.ttk import *
-import time
-import os
 
 activation_raw = "BETA"
 run = False
