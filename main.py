@@ -18,17 +18,6 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
             self.x = x
             self.y = y
 
-    #variables
-    ##one variables
-    point = 0.0
-    TILE = None
-    text_x = SCREEN_WIDTH//2
-    text_y = SCREEN_HEIGHT//2
-    ##lists
-    tileposList = createTileList()
-    tilelist = tileListInit()
-    entity = []
-
     #define
     def res() -> None:
         global point
@@ -63,6 +52,18 @@ def main(budget = int, infinity = bool, elec = float, envi = float):
         showtext_ = font.render(text, True, color)
         textRect = showtext_.get_rect(center = (x, y))
         screen.blit(showtext_, textRect)
+
+
+    #variables
+    ##one variables
+    point = 0.0
+    TILE = None
+    text_x = SCREEN_WIDTH//2
+    text_y = SCREEN_HEIGHT//2
+    ##lists
+    tileposList = createTileList()
+    tilelist = tileListInit()
+    entity = []
 
     #run
     run = True
